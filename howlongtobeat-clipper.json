@@ -1,0 +1,51 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "HowLongToBeat",
+	"behavior": "create",
+	"noteContentFormat": "cover:: ![cover|200]({{image}})\n\n",
+	"properties": [
+		{
+			"name": "tags",
+			"value": "gra, backlog",
+			"type": "multitext"
+		},
+		{
+			"name": "url",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "year",
+			"value": "{{selector:.GameSummary_profile_info__HZFQu|object|slice:6,7|split:\\\"NA: \\\"|slice:1|slice:-4}}",
+			"type": "number"
+		},
+		{
+			"name": "developer",
+			"value": " {{selector:.GameSummary_profile_info__HZFQu|object|slice:4,5|split:\\\"Developer: \\\"|slice:1|split:\\\", \\\"|wikilink}}",
+			"type": "multitext"
+		},
+		{
+			"name": "publisher",
+			"value": " {{selector:.GameSummary_profile_info__HZFQu|object|slice:5,6|split:\\\"Publisher: \\\"|slice:1|split:\\\", \\\"|wikilink}}",
+			"type": "multitext"
+		},
+		{
+			"name": "gdzie_mam",
+			"value": "",
+			"type": "multitext"
+		},
+		{
+			"name": "genres",
+			"value": "{{selector:.GameSummary_profile_info__HZFQu|object|slice:3,4|split:\\\"Genres: \\\"|slice:1|lower|split:\\\", \\\"|wikilink}}",
+			"type": "multitext"
+		},
+		{
+			"name": "main_story",
+			"value": "{{selector:.GameSummary_profile_info__HZFQu|object|slice:1,2|split:\\\"is about \\\"|slice:1|split:\\\" Hours\\\"|slice:0,1||replace:\\\"½\\\":\\\"\\\"}}",
+			"type": "number"
+		}
+	],
+	"triggers": [],
+	"noteNameFormat": "{{selector:.GameHeader_profile_header__q_PID}} ({{selector:.GameSummary_profile_info__HZFQu|object|slice:6,7|split:\"NA: \"|slice:1|slice:-4}})",
+	"path": "4_Listy/43_Gry/Database/{{selector:.GameSummary_profile_info__HZFQu|object|slice:6,7|split:\"NA: \"|slice:1|slice:-4}}"
+}
